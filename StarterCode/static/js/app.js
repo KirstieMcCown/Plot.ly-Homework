@@ -23,8 +23,6 @@ d3.json("samples.json").then((data) => {
     newoption.attr('value', name);
     newoption.text(name);   
     selectedID = dropdownMenu.node().value;
-    
-    
     // console.log(selectedID)
 })
 });
@@ -40,7 +38,7 @@ function optionChanged(selectedID) {
         barchart(selectedID);
         bubblechart(selectedID);
         gaugechart(selectedID);
-}
+};
 
 // Create a function to populate the Demographics Table based on selected ID
 function metadataTable(selectedID) {
@@ -54,7 +52,7 @@ function metadataTable(selectedID) {
         panel.append("h6").text(item[0]+': '+item[1]);
     });
   });
-}
+};
 
 // Create a function to populate the Bar Chart based on selected ID
 function barchart(selectedID){
@@ -65,9 +63,11 @@ function barchart(selectedID){
     var selectID = samples.filter(person=>person.id==selectedID);
     var valuearray = selectID[0];
     var values = valuearray.sample_values.slice(0,10);
-    var IDs = valuearray.otu_ids.map(otu => "OTU " + otu)
+    var IDs = valuearray.otu_ids.map(otu => "OTU " + otu);
     var labels = valuearray.otu_labels.slice(0,10);
     // console.log(valuearray);
+
+    // Create the trace for plotting
     var trace = {
         x : values,
         y : IDs,
@@ -75,13 +75,18 @@ function barchart(selectedID){
         type : 'bar',
         orientation : 'h'
     };
+
     // Define the plot layout
     var layout = {
         title: "Top 10 OTU's for Selected Test Subject",
         xaxis: { title: "Sample Value" },
         yaxis: { title: "OTU ID" }
     };
+
+    // Define the data
     var plotdata = [trace]
+
+    // Create plot using Plotly
     Plotly.newPlot('bar', plotdata, layout)
 
 })}; 
@@ -98,6 +103,8 @@ function bubblechart(selectedID){
     var IDs = valuearray.otu_ids;
     var labels = valuearray.otu_labels;
     // console.log(valuearray);
+
+    // Create the trace for plotting
     var trace = {
         x : IDs,
         y : values,
@@ -108,14 +115,19 @@ function bubblechart(selectedID){
             color: IDs
         }
     };
+
     // Define the plot layout
     var layout = {
         title: "All OTU's for Selected Test Subject",
         xaxis: { title: "OTU ID" },
         yaxis: { title: "Sample Value" }
     };
-    var plotdata = [trace]
-    Plotly.newPlot('bubble', plotdata, layout)
+
+    // Define the data
+    var plotdata = [trace];
+
+    // Create plot using Plotly
+    Plotly.newPlot('bubble', plotdata, layout);
 
 })}; 
 
@@ -127,6 +139,8 @@ function gaugechart(selectedID){
     selectedID = dropdownMenu.node().value;
     var washfreq = datametadata.filter(person => person.id == selectedID)[0].wfreq;
     // console.log(washfreq)
+
+    // Create the trace for plotting
     var trace = {
         domain: { x: [0, 1], y: [0, 1] },
 		value: washfreq,
@@ -137,7 +151,10 @@ function gaugechart(selectedID){
 
     };
     
-    var plotdata = [trace]
-    Plotly.newPlot('gauge', plotdata)
+    // Define the data
+    var plotdata = [trace];
+
+    // Create plot using Plotly
+    Plotly.newPlot('gauge', plotdata);
 
 })};
