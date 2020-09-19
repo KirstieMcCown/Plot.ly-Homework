@@ -38,9 +38,10 @@ function optionChanged(selectedID) {
         metadataTable(selectedID);
         barchart(selectedID);
         bubblechart(selectedID);
+        gaugechart(selectedID);
 }
 
-
+// Create a function to populate the Demographics Table based on selected ID
 function metadataTable(selectedID) {
     d3.json("samples.json").then((data) => {
         var info = datametadata.filter(person => person.id == selectedID);
@@ -54,6 +55,7 @@ function metadataTable(selectedID) {
   });
 }
 
+// Create a function to populate the Bar Chart based on selected ID
 function barchart(selectedID){
     d3.json("samples.json").then((data) => {
     var dropdownMenu = d3.select("#selDataset");
@@ -64,7 +66,7 @@ function barchart(selectedID){
     var values = valuearray.sample_values.slice(0,10);
     var IDs = valuearray.otu_ids.map(otu => "OTU " + otu)
     var labels = valuearray.otu_labels.slice(0,10);
-    console.log(valuearray);
+    // console.log(valuearray);
     var trace = {
         x : values,
         y : IDs,
@@ -83,6 +85,7 @@ function barchart(selectedID){
 
 })}; 
 
+// Create a function to populate the Bar Chart based on selected ID
 function bubblechart(selectedID){
     d3.json("samples.json").then((data) => {
     var dropdownMenu = d3.select("#selDataset");
@@ -106,7 +109,7 @@ function bubblechart(selectedID){
     };
     // Define the plot layout
     var layout = {
-        title: "Top 10 OTU's for Selected Test Subject",
+        title: "All OTU's for Selected Test Subject",
         xaxis: { title: "OTU ID" },
         yaxis: { title: "Sample Value" }
     };
@@ -116,4 +119,24 @@ function bubblechart(selectedID){
 })}; 
 
 
+// Create a function to populate the Gauge Chart based on selected ID
+function gaugechart(selectedID){
+    d3.json("samples.json").then((data) => {
+    var dropdownMenu = d3.select("#selDataset");
+    selectedID = dropdownMenu.node().value;
+    var washfreq = datametadata.filter(person => person.id == selectedID)[0].wfreq;
+    // console.log(washfreq)
+    var trace = {
+        domain: { x: [0, 1], y: [0, 1] },
+		value: washfreq,
+		title: { text: "Wash Frequency" },
+		type: "indicator",
+        mode: "gauge+number",
+        gauge: { axis: { range: [null, 9] } }
 
+    };
+    
+    var plotdata = [trace]
+    Plotly.newPlot('gauge', plotdata)
+
+})};
