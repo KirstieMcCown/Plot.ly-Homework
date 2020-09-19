@@ -1,3 +1,4 @@
+// Create global variables
 var data;
 var dataNames;
 var sampledata;
