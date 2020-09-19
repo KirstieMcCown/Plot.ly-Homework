@@ -14,16 +14,16 @@ The dashboard will provide you with an insight to each test subject(s) results, 
 By selecting a test subject ID number from the available drop down menu, you will be shown three interactive charts and all demographic information for the selected test subject. 
 
 ### The Charts 
-There are 3 different types of charts available to view, the first is a bar chart which shows the top 10 OTU's (operational taxonomic units), found on the selected test subject
+There are 3 different types of charts available to view, the first is a bar chart which shows the top 10 OTU's (operational taxonomic units), found on the selected test subject<br>
 ![bar Chart](Images/Top10.PNG)<br>
 
-The second is a gauge of the Wash Frequency of the selected test subject, showing how many times per week the individual washed their belly button
+The second is a gauge of the Wash Frequency of the selected test subject, showing how many times per week the individual washed their belly button<br>
 ![Weekly Washing Frequency Gauge](Images/Wash.PNG)<br>
 
-This statistic is also reflected in the Demographic Information, which provides you with more details about the selected test subject 
+This statistic is also reflected in the Demographic Information, which provides you with more details about the selected test subject <br>
 ![Demographics](Images/Demo.PNG)<br>
 
-Finally there is an interactive bubble chart, that allows you to see all OTU's that were found on the selected test subject over the course of the study.
+Finally there is an interactive bubble chart, that allows you to see all OTU's that were found on the selected test subject over the course of the study.<br>
 ![Bubble Chart](Images/AllOTUs.PNG)<br>
 
 
