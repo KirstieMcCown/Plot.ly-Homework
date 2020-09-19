@@ -10,7 +10,7 @@ var selectedID;
 
 
 // Populate dropbox with ID Values - ID Values come from dataSamples, this comes as a list
-d3.json("samples.json").then((data) => {
+d3.json("data/samples.json").then((data) => {
     data = data;
     dataNames = data.names;
     sampledata = data.samples;
@@ -42,7 +42,7 @@ function optionChanged(selectedID) {
 
 // Create a function to populate the Demographics Table based on selected ID
 function metadataTable(selectedID) {
-    d3.json("samples.json").then((data) => {
+    d3.json("data/samples.json").then((data) => {
         var info = datametadata.filter(person => person.id == selectedID);
         var selectedinfo = info[0];
         var panel = d3.select("#sample-metadata");
@@ -56,7 +56,7 @@ function metadataTable(selectedID) {
 
 // Create a function to populate the Bar Chart based on selected ID
 function barchart(selectedID){
-    d3.json("samples.json").then((data) => {
+    d3.json("data/samples.json").then((data) => {
     var dropdownMenu = d3.select("#selDataset");
     selectedID = dropdownMenu.node().value;
     var samples = data.samples;
@@ -93,7 +93,7 @@ function barchart(selectedID){
 
 // Create a function to populate the Bar Chart based on selected ID
 function bubblechart(selectedID){
-    d3.json("samples.json").then((data) => {
+    d3.json("data/samples.json").then((data) => {
     var dropdownMenu = d3.select("#selDataset");
     selectedID = dropdownMenu.node().value;
     var samples = data.samples;
@@ -134,7 +134,7 @@ function bubblechart(selectedID){
 
 // Create a function to populate the Gauge Chart based on selected ID
 function gaugechart(selectedID){
-    d3.json("samples.json").then((data) => {
+    d3.json("data/samples.json").then((data) => {
     var dropdownMenu = d3.select("#selDataset");
     selectedID = dropdownMenu.node().value;
     var washfreq = datametadata.filter(person => person.id == selectedID)[0].wfreq;
