@@ -1,6 +1,6 @@
 # Belly Button Biodiversity
 
-![Header](Images/Header.png)<br>
+![Header](Images/Header.PNG)<br>
 
 Welcome to my project repo! 
 You can visit the website [here](https://kirstiemccown.github.io/Plot.ly-Homework/), or feel free to take a look around the repo folders! 
@@ -15,16 +15,16 @@ By selecting a test subject ID number from the available drop down menu, you wil
 
 ### The Charts 
 There are 3 different types of charts available to view, the first is a bar chart which shows the top 10 OTU's (operational taxonomic units), found on the selected test subject
-![bar Chart](Images/Top10.png)<br>
+![bar Chart](Images/Top10.PNG)<br>
 
 The second is a gauge of the Wash Frequency of the selected test subject, showing how many times per week the individual washed their belly button
-![Weekly Washing Frequency Gauge](Images/Wash.png)<br>
+![Weekly Washing Frequency Gauge](Images/Wash.PNG)<br>
 
 This statistic is also reflected in the Demographic Information, which provides you with more details about the selected test subject 
-![Demographics](Images/Demo.png)<br>
+![Demographics](Images/Demo.PNG)<br>
 
 Finally there is an interactive bubble chart, that allows you to see all OTU's that were found on the selected test subject over the course of the study.
-![Bubble Chart](Images/AllOTUs.png)<br>
+![Bubble Chart](Images/AllOTUs.PNG)<br>
 
 
 ### Created With
