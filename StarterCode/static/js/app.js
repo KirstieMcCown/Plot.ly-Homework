@@ -7,6 +7,7 @@ var firstIDlabels;
 var selectedID;
 
 
+
 // Populate dropbox with ID Values - ID Values come from dataSamples, this comes as a list
 d3.json("samples.json").then((data) => {
     data = data;
@@ -22,9 +23,14 @@ d3.json("samples.json").then((data) => {
     newoption.text(name);   
     selectedID = dropdownMenu.node().value;
     
+    
     // console.log(selectedID)
 })
 });
+
+// Run the optionChanged function on the default ID to load when the page is first opened
+var defaultID = "940"
+optionChanged(defaultID);
 
 // Create a function to change demographics table and all charts based on selected ID
 function optionChanged(selectedID) {
@@ -33,6 +39,7 @@ function optionChanged(selectedID) {
         barchart(selectedID);
         bubblechart(selectedID);
 }
+
 
 function metadataTable(selectedID) {
     d3.json("samples.json").then((data) => {
@@ -86,7 +93,7 @@ function bubblechart(selectedID){
     var values = valuearray.sample_values;
     var IDs = valuearray.otu_ids;
     var labels = valuearray.otu_labels;
-    console.log(valuearray);
+    // console.log(valuearray);
     var trace = {
         x : IDs,
         y : values,
@@ -107,3 +114,6 @@ function bubblechart(selectedID){
     Plotly.newPlot('bubble', plotdata, layout)
 
 })}; 
+
+
+
